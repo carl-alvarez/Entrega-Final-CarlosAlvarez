@@ -13,3 +13,6 @@ La idea de este proyecto es crear un juego del género Endless Runner. Las mecá
 
 Todavía no tengo nombre del proyecto y además pretendo realizar la sonorización del juego yo mismo.
 
+######################################
+Bug a corregir: cuando se instansean las plumas, por algún motivo los el tercer o cuarto tile por venir hacia el jugador desaparece.
+

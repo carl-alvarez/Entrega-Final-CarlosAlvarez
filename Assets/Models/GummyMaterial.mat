@@ -28,8 +28,8 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _alpha: 0.942
-    - _distor: 0.081
+    - _alpha: 0.851
+    - _distor: 0.098
     - _fresnel: 0.48
     - _fresnelContrast: 4
     m_Colors:

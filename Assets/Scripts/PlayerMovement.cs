@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
+        transform.GetChild(0).transform.Rotate(speed, 0, 0, Space.Self);
 
         if (transform.position.y < -5)
         {
@@ -40,7 +41,9 @@ public class PlayerMovement : MonoBehaviour
     public void Die()
     {
         alive = false;
+        speed = 0;
         Invoke("Restart", 2);
+        
     }
 
     void Restart()

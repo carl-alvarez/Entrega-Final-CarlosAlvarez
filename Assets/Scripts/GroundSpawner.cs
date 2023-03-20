@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject groundTile;
-    Vector3 nextSpawnPoint;
+    [SerializeField] GameObject groundTile; //pegamos el objecto piso
+    Vector3 nextSpawnPoint;                 //el punto donde deberia aparecer el siguiente    
 
     public void SpawnTile(bool spawnItems)
     {
-        GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
-        nextSpawnPoint = temp.transform.GetChild(1).transform.position;
+        GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);     //se crea la variable temp (temporaria) y le decimos que haga aparecer la tile, en el punto, y que su rotacion se la misma de siempre
+        nextSpawnPoint = temp.transform.GetChild(1).transform.position;                     //se le dice que el point va a ser en el transform del temp, especificamente en el child de index 1 q es el nextspawnpoint en el prefab
 
-        if (spawnItems )
+        if (spawnItems)
         {
             temp.GetComponent<GroundTile>().SpawnObstacle();
             temp.GetComponent<GroundTile>().SpawnCoins();
-            //temp.GetComponent <GroundTile>().SpawnFeather();
+            temp.GetComponent <GroundTile>().SpawnFeather();
         }
     }
 

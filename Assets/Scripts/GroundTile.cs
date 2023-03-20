@@ -10,7 +10,7 @@ public class GroundTile : MonoBehaviour
 
     [SerializeField] GameObject coinPrefab;
 
-    //[SerializeField] GameObject featherPrefab;
+    [SerializeField] GameObject featherPrefab;
 
     private void OnTriggerExit(Collider other)
     {
@@ -35,7 +35,7 @@ public class GroundTile : MonoBehaviour
 
     public void SpawnCoins()
     {
-        int coinsToSpawn = 6;
+        int coinsToSpawn = 2;
         for (int i = 0; i < coinsToSpawn; i++)
         {
             GameObject temp = Instantiate(coinPrefab, transform);
@@ -43,15 +43,15 @@ public class GroundTile : MonoBehaviour
         }
     }
 
-    //public void SpawnFeather()
-    //{
-    //    int featherToSpawn = 2;
-    //    for(int i = 0;i < featherToSpawn; i++)
-    //    {
-    //        GameObject temp = Instantiate(featherPrefab, transform);
-    //        temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
-    //    }
-    //}
+    public void SpawnFeather()
+    {
+        int featherToSpawn = 1;
+        for (int i = 0; i < featherToSpawn; i++)
+        {
+            GameObject temp = Instantiate(featherPrefab, transform);
+            temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
+        }
+    }
 
     Vector3 GetRandomPointInCollider (Collider collider)
     {

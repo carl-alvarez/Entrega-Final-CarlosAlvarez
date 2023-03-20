@@ -8,9 +8,21 @@ public class Feather : MonoBehaviour
 
     [SerializeField] AnimationCurve myCurve;
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.GetComponent<Obstacle>() != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        if (other.gameObject.name != "Player")
+        {
+            return;
+        }
+
+
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundTile : MonoBehaviour
 {
-    GroundSpawner groundSpawner;
+    GroundSpawner groundSpawner;    //para acceder desde el script  groundSpawner a este mismo
 
     [SerializeField] GameObject obstaclePrefab;
 
@@ -12,7 +12,7 @@ public class GroundTile : MonoBehaviour
 
     [SerializeField] GameObject featherPrefab;
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)  
     {
         groundSpawner.SpawnTile(true);
         Destroy(gameObject, 2);
@@ -21,7 +21,7 @@ public class GroundTile : MonoBehaviour
     void Start()
     {
         
-        groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
+        groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();   //para linkear scripts
         
     }   
 

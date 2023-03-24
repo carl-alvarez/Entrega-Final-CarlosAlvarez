@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5;
     [SerializeField] Rigidbody rb;
-    [SerializeField] float horizontalMultiplier = 2;   
+    [SerializeField] float horizontalMultiplier = 2;
     float horizontalInput;
 
     public float speedIncreasePerPoint = 1f;
 
     bool alive = true;
+
+    public Animator _anim;
+
+    
+    void Start()
+    {
+        _anim = gameObject.GetComponent<Animator>();
+        
+    }
 
     private void FixedUpdate()
     {
@@ -42,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     {
         alive = false;
         speed = 0;
+        _anim.Play("Desolve");
         Invoke("Restart", 2);
         
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,13 +14,20 @@ public class PlayerMovement : MonoBehaviour
 
     public float speedIncreasePerPoint = 1f;
 
+    
+    [SerializeField] float jumpForce = 400f;
+    [SerializeField] LayerMask groundMask;
+
     bool alive = true;
 
     public Animator _anim;
 
+    public bool saltoActivo;
+
     
     void Start()
     {
+        
         _anim = gameObject.GetComponent<Animator>();
         
     }
@@ -42,6 +50,13 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         transform.GetChild(0).transform.Rotate(speed, 0, 0, Space.Self);
 
+        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump(); 
+        }
+
         if (transform.position.y < -5)
         {
             Die();
@@ -61,4 +76,24 @@ public class PlayerMovement : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void Jump()
+    {
+        if (saltoActivo == true) 
+        {
+            float height = GetComponent<Collider>().bounds.size.y; //agarrar collider para ver si el player está apoyado en suelo
+
+            bool isGrounded = Physics.Raycast(transform.position, Vector3.down, (height / 2) + 0.1f, groundMask);
+
+            //para saltar
+
+            rb.AddForce(Vector3.up * jumpForce);
+
+        }
+        
+        
+        
+    }
+
+
 }

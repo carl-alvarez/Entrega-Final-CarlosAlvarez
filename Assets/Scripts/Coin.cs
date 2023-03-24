@@ -26,13 +26,19 @@ public class Coin : MonoBehaviour
             return;
        }
 
-        _anim.Play("CoinGain");
-        DontDestroyOnLoad(_anim.gameObject);
+       if(other.gameObject.name == "Player")
+        {
+            _anim.SetTrigger("chocar");
+            GameManager.inst.IncrementScore();
+            other.gameObject.GetComponent<PlayerMovement>().saltoActivo = false;
 
-        GameManager.inst.IncrementScore();
 
+            Destroy(gameObject);
+        }
+        
+        //DontDestroyOnLoad(_anim.gameObject);
 
-        Destroy(gameObject);
+        
     }
 
     void Awake()

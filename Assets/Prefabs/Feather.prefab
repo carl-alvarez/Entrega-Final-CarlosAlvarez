@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476cf620c5d1d814fa585372a788f7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 4054950920080959745, guid: 40a188bbf151f9b478a3199a94e49e19, type: 3}
   rotateSpeed: -1
   myCurve:
     serializedVersion: 2

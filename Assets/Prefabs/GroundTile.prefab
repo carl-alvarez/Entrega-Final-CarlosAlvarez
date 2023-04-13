@@ -255,6 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 7506137891806208650, guid: 70c0715bcaee1a048bdb6035da618e0e, type: 3}
+  tallObstaclePrefab: {fileID: 7506137891806208650, guid: 951b48c33a122da4994360b67073ccd6, type: 3}
+  tallObstacleChance: 0.2
   coinPrefab: {fileID: 5405713324217206911, guid: 7e2fb583077a61d409815e8f9536c3b1, type: 3}
   featherPrefab: {fileID: 2000049445838967268, guid: a78a56504920d574889cf2f0aa203ceb, type: 3}
 --- !u!1 &7079307180764590317

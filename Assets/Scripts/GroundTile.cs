@@ -8,6 +8,10 @@ public class GroundTile : MonoBehaviour
 
     [SerializeField] GameObject obstaclePrefab;
 
+    [SerializeField] GameObject tallObstaclePrefab;
+
+    [SerializeField] float tallObstacleChance = 0.2f;
+
     [SerializeField] GameObject coinPrefab;
 
     [SerializeField] GameObject featherPrefab;
@@ -27,10 +31,23 @@ public class GroundTile : MonoBehaviour
 
     public void SpawnObstacle()
     {
+        
         int obstacleSpawnIndex = Random.Range(2, 5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
 
         Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
+    }
+
+    public void SpawnTallObstacle()
+    {
+        Transform spawnTall = transform.GetChild(1).transform;
+        GameObject obstacleToSpawn = obstaclePrefab;
+        float random = Random.Range(0f, 1f);
+        if (random < tallObstacleChance)
+        {
+            obstacleToSpawn = tallObstaclePrefab;
+            Instantiate(obstacleToSpawn, spawnTall.position, Quaternion.identity, transform);
+        }
     }
 
     public void SpawnCoins()
@@ -45,7 +62,7 @@ public class GroundTile : MonoBehaviour
 
     public void SpawnFeather()
     {
-        int featherToSpawn = 1;
+        int featherToSpawn = 2;
         for (int i = 0; i < featherToSpawn; i++)
         {
             GameObject temp = Instantiate(featherPrefab, transform);

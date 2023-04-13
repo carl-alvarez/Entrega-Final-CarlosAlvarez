@@ -9,10 +9,13 @@ public class Coin : MonoBehaviour
 
     [SerializeField] AnimationCurve myCurve;
 
-
     [SerializeField] Animator _anim;
 
-    
+    public AudioSource coinSound;
+
+    public Renderer rend;// cambié el simple destroy por desactivar el renderer asi puedo escuchar el sonido cuando agarro las monedas, con el destroy de una no lo escucho pues no da el tiempo
+
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,20 +33,26 @@ public class Coin : MonoBehaviour
 
        if(other.gameObject.name == "Player")
         {
-            
+            coinSound.enabled = true;
             _anim.SetTrigger("chocar");
             GameManager.inst.IncrementScore();
             other.gameObject.GetComponent<PlayerMovement>().saltoActivo = false;
+            rend.enabled = false;
 
 
-            Destroy(gameObject);
+            Destroy(gameObject, 0.48f);
         }
         
         //DontDestroyOnLoad(_anim.gameObject);
                 
     }
+    void Start()
+    {
+        rend = GetComponent<Renderer>();
+        rend.enabled = true;
+        coinSound = gameObject.GetComponent<AudioSource>();
+    }
 
-    
 
     // Update is called once per frame
     void Update()

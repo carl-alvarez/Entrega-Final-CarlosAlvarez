@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -2663627442996438638}
   - component: {fileID: 4402186064262826666}
   - component: {fileID: -8091252913063906459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Feather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476cf620c5d1d814fa585372a788f7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 4054950920080959745, guid: 40a188bbf151f9b478a3199a94e49e19, type: 3}
   rotateSpeed: -1
   myCurve:
     serializedVersion: 2
@@ -123,7 +122,7 @@ GameObject:
   - component: {fileID: 1799890372714805766}
   - component: {fileID: 3471520625333207884}
   - component: {fileID: 74568589521102808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

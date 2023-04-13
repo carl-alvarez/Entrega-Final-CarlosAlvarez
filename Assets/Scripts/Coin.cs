@@ -12,6 +12,8 @@ public class Coin : MonoBehaviour
 
     [SerializeField] Animator _anim;
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.GetComponent<Obstacle>() != null)
@@ -28,6 +30,7 @@ public class Coin : MonoBehaviour
 
        if(other.gameObject.name == "Player")
         {
+            
             _anim.SetTrigger("chocar");
             GameManager.inst.IncrementScore();
             other.gameObject.GetComponent<PlayerMovement>().saltoActivo = false;
@@ -37,15 +40,10 @@ public class Coin : MonoBehaviour
         }
         
         //DontDestroyOnLoad(_anim.gameObject);
-
-        
+                
     }
 
-    void Awake()
-    {
-        
-
-    }
+    
 
     // Update is called once per frame
     void Update()

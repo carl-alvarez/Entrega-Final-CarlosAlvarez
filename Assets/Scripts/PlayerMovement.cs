@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool saltoActivo;
 
+    public int jumpCount;
+
+    float altura;
+
     
     void Start()
     {
@@ -49,12 +53,17 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         transform.GetChild(0).transform.Rotate(speed, 0, 0, Space.Self);
-
+        if (Physics.Raycast(transform.position, Vector3.down, altura, groundMask) && !Input.GetKeyDown(KeyCode.Space))
+        {
+            JumpReset();
+        }
+        
         
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 3)
         {
-            Jump(); 
+            Jump();
+            jumpCount++;
         }
 
         if (transform.position.y < -5)
@@ -89,10 +98,14 @@ public class PlayerMovement : MonoBehaviour
 
             rb.AddForce(Vector3.up * jumpForce);
 
-        }
+        }       
         
         
-        
+    }
+
+    public void JumpReset()
+    {
+        jumpCount = 1;
     }
 
 

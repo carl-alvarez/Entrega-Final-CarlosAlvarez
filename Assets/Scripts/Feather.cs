@@ -31,6 +31,7 @@ public class Feather : MonoBehaviour
         {
             featherSound.enabled = true;
             other.gameObject.GetComponent<PlayerMovement>().saltoActivo = true;
+            other.gameObject.GetComponent<PlayerMovement>().JumpReset();
             size.localScale = new Vector3(0,0,0);
 
             Destroy(gameObject, 1f);

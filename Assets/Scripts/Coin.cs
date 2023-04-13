@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Coin : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class Coin : MonoBehaviour
 
     public Renderer rend;// cambié el simple destroy por desactivar el renderer asi puedo escuchar el sonido cuando agarro las monedas, con el destroy de una no lo escucho pues no da el tiempo
 
+    Scene scene;
+
+    public string levelUno;
+
+    public string levelDos;
 
 
     private void OnTriggerEnter(Collider other)
@@ -48,6 +54,7 @@ public class Coin : MonoBehaviour
     }
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         coinSound = gameObject.GetComponent<AudioSource>();
@@ -57,7 +64,11 @@ public class Coin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        if (scene.name == levelUno)
+        {
+            _anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        }
+        
         transform.Rotate(0,rotateSpeed,0, Space.World);
         transform.position = new Vector3(transform.position.x, myCurve.Evaluate((Time.time % myCurve.length)), transform.position.z);
     }

@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text scoreText;
 
     [SerializeField] PlayerMovement playerMovement;
+
+    public GameObject EscapeMenu;
     public void IncrementScore()
     {
         score++;
@@ -32,6 +34,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1.0f)
+        {
+            Time.timeScale = 0.0f;
+            EscapeMenu.SetActive(true);
+        }
         
+    }
+    
+    public void GoPlay()
+    {
+        EscapeMenu.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 }

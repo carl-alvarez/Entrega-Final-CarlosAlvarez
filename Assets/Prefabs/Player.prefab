@@ -114,13 +114,14 @@ MonoBehaviour:
   speed: 8
   rb: {fileID: 4054950920080959999}
   horizontalMultiplier: 1.7
-  speedIncreasePerPoint: 0.35
-  jumpForce: 400
+  speedIncreasePerPoint: 0.3
+  jumpForce: 300
   groundMask:
     serializedVersion: 2
     m_Bits: 256
   _anim: {fileID: 4054950920080959996}
   saltoActivo: 0
+  jumpCount: 0
 --- !u!95 &4054950920080959996
 Animator:
   serializedVersion: 4

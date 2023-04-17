@@ -52,7 +52,7 @@ public class GroundTile : MonoBehaviour
 
     public void SpawnCoins()
     {
-        int coinsToSpawn = 2;
+        int coinsToSpawn = 3;
         for (int i = 0; i < coinsToSpawn; i++)
         {
             GameObject temp = Instantiate(coinPrefab, transform);
@@ -62,7 +62,7 @@ public class GroundTile : MonoBehaviour
 
     public void SpawnFeather()
     {
-        int featherToSpawn = 2;
+        int featherToSpawn = 3;
         for (int i = 0; i < featherToSpawn; i++)
         {
             GameObject temp = Instantiate(featherPrefab, transform);

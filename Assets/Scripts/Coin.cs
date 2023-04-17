@@ -64,7 +64,7 @@ public class Coin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (scene.name == levelUno)
+        if (scene.name == levelUno || scene.name == levelDos)
         {
             _anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         }

@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 400f;
     [SerializeField] LayerMask groundMask;
 
-    bool alive = true;
+    public bool alive = true;
 
     public Animator _anim;
 
@@ -31,9 +31,10 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
-        
+        Time.timeScale = 1.0f;
         _anim = gameObject.GetComponent<Animator>();
-        
+        _anim.Play("Desolve");
+
     }
 
     private void FixedUpdate()
@@ -75,13 +76,11 @@ public class PlayerMovement : MonoBehaviour
     public void Die()
     {
         alive = false;
-        speed = 0;
-        _anim.Play("Desolve");
-        Invoke("Restart", 2);
+        speed = 0;                
         
     }
 
-    void Restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

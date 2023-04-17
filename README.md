@@ -16,3 +16,6 @@ Todavía no tengo nombre del proyecto y además pretendo realizar la sonorizaci�
 ######################################
 Bug a corregir: cuando se instansean las plumas, por algún motivo los el tercer o cuarto tile por venir hacia el jugador desaparece.
 
+######################################
+Actualización Post Build y entrega:
+El juego va a seguir trabajandose, faltó una mecánica pero creo que se logró bastante bien el resto del gameplay. Música creada por mi, disfruté mucho hacerla. Prefabs son de diferentes páginas de assets 3D, asi como el controllador y generador de Skybox Polyverse.

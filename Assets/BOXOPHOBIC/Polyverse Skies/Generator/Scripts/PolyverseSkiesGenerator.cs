@@ -170,23 +170,23 @@ namespace PolyverseSkies
                 byte[] imgBytes = img.EncodeToPNG();
                 File.WriteAllBytes(path, imgBytes);
 
-                AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+                //AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
 
-                TextureImporter texImporter = AssetImporter.GetAtPath(path) as TextureImporter;
-                texImporter.textureShape = TextureImporterShape.TextureCube;
-                texImporter.textureCompression = TextureImporterCompression.CompressedHQ;
-                texImporter.mipmapEnabled = false;
-                texImporter.sRGBTexture = false;
+                //TextureImporter texImporter = AssetImporter.GetAtPath(path) as TextureImporter;
+                //texImporter.textureShape = TextureImporterShape.TextureCube;
+                //texImporter.textureCompression = TextureImporterCompression.CompressedHQ;
+                //texImporter.mipmapEnabled = false;
+                //texImporter.sRGBTexture = false;
 
-                texImporter.SaveAndReimport();
+                //texImporter.SaveAndReimport();
 
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
+                //AssetDatabase.SaveAssets();
+                //AssetDatabase.Refresh();
 
-                if (cubemapType == CubemapType.CloudsCubemap)
-                {
-                    RenderSettings.skybox.SetTexture("_CloudsCubemap", AssetDatabase.LoadAssetAtPath<Cubemap>(path));
-                }
+                //if (cubemapType == CubemapType.CloudsCubemap)
+                //{
+                //    RenderSettings.skybox.SetTexture("_CloudsCubemap", AssetDatabase.LoadAssetAtPath<Cubemap>(path));
+                //}
 
                 Debug.Log("[Polyverse Skies] The Generated Cubemap is saved to the Assets folder!");
 
